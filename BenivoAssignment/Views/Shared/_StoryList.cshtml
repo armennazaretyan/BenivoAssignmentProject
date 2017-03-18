@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BenivoAssignment.Models.StoryViewModel>
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-3 col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b>
+                    @item.Title
+                </b>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-xs-7">
+                        <a href="@Url.Action("Details", "Story", new { id = item.Id }) ">
+                            <span class="pull-left">View Details</span>
+                            <div class="clearfix"></div>
+                        </a>
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        @if (item.IsEditable)
+                        {
+                            <a href="@Url.Action("Edit", "Story", new { id = item.Id }) " class="white">Edit</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

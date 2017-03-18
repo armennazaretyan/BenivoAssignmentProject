@@ -1,0 +1,46 @@
+﻿@model BenivoAssignment.Models.LoginViewModel
+
+@{
+    Layout = "/Views/Shared/_SympleLayout.cshtml";
+    ViewBag.Title = "Login";
+}
+
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+<div class="text-center" style="padding:50px 0">
+    <div class="logo">Login</div>
+    <!-- Main Form -->
+    <div class="login-form-1">
+        <form id="login-form" class="text-left">
+            <div class="login-form-main-message"></div>
+            <div class="main-login-form">
+                <div class="login-group">
+                    <div class="form-group">
+                        @Html.Label("Username", new { @class = "sr-only", @for = "f_username" })
+                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Username", name = "f_username" })
+                        @Html.ValidationMessageFor(model => model.UserName)
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Username", new { @class = "sr-only", @for = "f_password" })
+                        @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Password", name = "f_password" })
+                        @Html.ValidationMessageFor(model => model.Password)
+                    </div>
+                    <div class="form-group login-group-checkbox">
+                        @Html.ActionLink("Create new account", "Register", null, new { @class = "" })
+                    </div>
+                </div>
+                <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+            </div>
+        </form>
+    </div>
+    <!-- end:Main Form -->
+</div>
+
+}
+
